@@ -183,7 +183,7 @@ What this project contributes on top of that prior work is narrow: identifying B
 
 Technical references used for that part:
 
-- [BlueZ](http://www.bluez.org/) — `attrib/utils.c` and `src/adapter.c` in the 5.72 release tarball
+- [BlueZ upstream source](https://github.com/bluez/bluez) — `attrib/utils.c` and `src/adapter.c` in the 5.72 release
 - [Bleak client API](https://bleak.readthedocs.io/en/latest/api/client.html)
 - [Home Assistant Bluetooth developer documentation](https://developers.home-assistant.io/docs/bluetooth)
 
