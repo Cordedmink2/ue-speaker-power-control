@@ -1,0 +1,24 @@
+# Runtime and generated files
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.log
+
+# Private/local configuration
+config.json
+*.local.json
+.env
+.env.*
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Build/coverage output
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/

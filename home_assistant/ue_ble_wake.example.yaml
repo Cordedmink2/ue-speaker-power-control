@@ -1,0 +1,32 @@
+shell_command:
+  ue_speaker_wake: >-
+    /config/ue-ble-wake/.venv/bin/python
+    /config/ue-ble-wake/wake_ue.py
+    --config /config/ue-ble-wake/config.json
+    --action on --retries 1 --timeout 20 --json
+  ue_speaker_off: >-
+    /config/ue-ble-wake/.venv/bin/python
+    /config/ue-ble-wake/wake_ue.py
+    --config /config/ue-ble-wake/config.json
+    --action off --retries 1 --timeout 20 --json
+
+script:
+  # The helper exits non-zero when the speaker does not acknowledge the command.
+  # shell_command turns that into a raised error, which fails the script and logs
+  # the exact failing command. That is deliberate: a failed power command must not
+  # look like a success.
+  ue_speaker_wake:
+    alias: UE Speaker Wake
+    description: Wake the paired Ultimate Ears speaker over its BLE standby characteristic.
+    mode: single
+    sequence:
+      - action: shell_command.ue_speaker_wake
+  ue_speaker_off:
+    alias: UE Speaker Off
+    description: >-
+      Power off the paired Ultimate Ears speaker by writing its vendor power
+      characteristic over an explicitly forced LE connection. The speaker stays
+      remotely wakeable afterwards.
+    mode: single
+    sequence:
+      - action: shell_command.ue_speaker_off
